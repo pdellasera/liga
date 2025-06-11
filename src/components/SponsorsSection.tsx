@@ -32,7 +32,7 @@ const staggerContainer = {
 
 export default function SponsorsSection() {
   return (
-    <section className="px-4 py-12 bg-gradient-to-r from-black/10 to-copa-red/5">
+    <section className="px-4 py-12 bg-gradient-to-r from-black/10 to-[#ac3328]/5">
       <motion.div
         className="mx-auto max-w-7xl"
         initial="initial"
@@ -43,7 +43,7 @@ export default function SponsorsSection() {
         {/* Header */}
         <motion.div variants={fadeInUp} className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <Users className="w-6 h-6 text-copa-red" />
+            <Users className="w-6 h-6 text-[#ac3328]" />
             <h2 className="text-3xl sm:text-4xl font-bold text-white">Nuestros Patrocinadores</h2>
           </div>
           <p className="text-gray-300 max-w-2xl mx-auto">
@@ -58,7 +58,7 @@ export default function SponsorsSection() {
             {/* Main Sponsors */}
             <div className="mb-8">
               <h3 className="text-white font-semibold text-lg mb-6 text-center flex items-center justify-center gap-2">
-                <Heart className="w-5 h-5 text-copa-red" />
+                <Heart className="w-5 h-5 text-[#ac3328]" />
                 Patrocinadores Principales
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 items-center justify-items-center">
@@ -75,7 +75,7 @@ export default function SponsorsSection() {
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <div className="w-24 h-16 sm:w-32 sm:h-20 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex items-center justify-center group-hover:bg-white/20 group-hover:border-copa-red/30 transition-all duration-300">
+                      <div className="w-24 h-16 sm:w-32 sm:h-20 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 flex items-center justify-center group-hover:bg-white/20 group-hover:border-[#ac3328]/30 transition-all duration-300">
                         <span className="text-white text-xs sm:text-sm font-medium text-center px-2">
                           {sponsor.name}
                         </span>
@@ -124,7 +124,7 @@ export default function SponsorsSection() {
         <motion.div variants={fadeInUp} className="text-center mt-8">
           <p className="text-gray-400 text-sm mb-4">¿Quieres ser parte de la Copa Trinche?</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <div className="flex items-center gap-2 text-copa-red text-sm font-medium">
+            <div className="flex items-center gap-2 text-[#ac3328] text-sm font-medium">
               <Heart className="w-4 h-4 text-white" />
               <span className="text-white">Contactanos para ser patrocinador</span>
             </div>

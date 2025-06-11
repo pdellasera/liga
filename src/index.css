@@ -1,2 +1,24 @@
 @import "tailwindcss";
 
+@theme {
+  --copa-red: oklch(51.59% 0.203 27.26),
+  --copa-red-dark: oklch(42.91% 0.162 27.31) 
+}
+
+
+
+@keyframes progress {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-progress {
+  animation: progress 3s ease-in-out forwards;
+}

@@ -507,7 +507,7 @@ const groupsData = {
 }
 
 const getPositionColor = (pos: number, qualified: string | null) => {
-  if (qualified === "first") return "bg-copa-red/20 text-copa-red border-copa-red/30"
+  if (qualified === "first") return "bg-[#ac3328]/20 text-[#ac3328] border-[#ac3328]/30"
   if (qualified === "second") return "bg-orange-500/20 text-orange-400 border-orange-500/30"
   if (pos <= 2) return "bg-yellow-500/20 text-yellow-400 border-yellow-500/30"
   return "bg-gray-500/20 text-gray-400 border-gray-500/30"
@@ -516,7 +516,7 @@ const getPositionColor = (pos: number, qualified: string | null) => {
 const getQualificationIcon = (qualified: string | null) => {
   switch (qualified) {
     case "first":
-      return <Trophy className="w-3 h-3 text-copa-red" />
+      return <Trophy className="w-3 h-3 text-[#ac3328]" />
     case "second":
       return <Medal className="w-3 h-3 text-orange-400" />
     default:
@@ -643,13 +643,13 @@ function GroupTable({ groupName, teams }: { groupName: string; teams: any[] }) {
     <Card className="bg-white/10 backdrop-blur-sm border-white/20 overflow-hidden">
       <CardHeader className="pb-4">
         <CardTitle className="text-white flex items-center gap-2">
-          <Award className="w-5 h-5 text-copa-red" />
+          <Award className="w-5 h-5 text-[#ac3328]" />
           {groupName}
         </CardTitle>
         <div className="flex flex-wrap gap-2 text-xs">
           <div className="flex items-center gap-1">
-            <div className="w-3 h-3 rounded-full bg-copa-red/20 border border-copa-red/30"></div>
-            <span className="text-copa-red">1° Clasificado</span>
+            <div className="w-3 h-3 rounded-full bg-[#ac3328]/20 border border-[#ac3328]/30"></div>
+            <span className="text-[#ac3328]">1° Clasificado</span>
           </div>
           <div className="flex items-center gap-1">
             <div className="w-3 h-3 rounded-full bg-orange-500/20 border border-orange-500/30"></div>
@@ -842,12 +842,12 @@ export default function StandingsTable() {
         transition={{ delay: 0.3 }}
       >
         <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
-          <Trophy className="w-4 h-4 text-copa-red" />
+          <Trophy className="w-4 h-4 text-[#ac3328]" />
           Clasificación a Cuartos de Final
         </h4>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
           <div className="flex items-center gap-2">
-            <Trophy className="w-4 h-4 text-copa-red" />
+            <Trophy className="w-4 h-4 text-[#ac3328]" />
             <span className="text-gray-300">Los primeros de cada grupo clasifican directamente</span>
           </div>
           <div className="flex items-center gap-2">

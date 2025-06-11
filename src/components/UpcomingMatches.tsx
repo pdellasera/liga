@@ -333,15 +333,15 @@ function PaymentSuccess({
 
           <div className="grid grid-cols-2 gap-4 text-sm mb-4">
             <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-copa-red" />
+              <Calendar className="w-4 h-4 text-[#ac3328]" />
               <span className="text-gray-300">{match.status}</span>
             </div>
             <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-copa-red" />
+              <Clock className="w-4 h-4 text-[#ac3328]" />
               <span className="text-gray-300">{match.time}</span>
             </div>
             <div className="flex items-center gap-2 col-span-2">
-              <MapPin className="w-4 h-4 text-copa-red" />
+              <MapPin className="w-4 h-4 text-[#ac3328]" />
               <span className="text-gray-300">{match.venue}</span>
             </div>
           </div>
@@ -357,7 +357,7 @@ function PaymentSuccess({
             </div>
             <div className="flex justify-between font-bold text-lg">
               <span className="text-white">Total pagado:</span>
-              <span className="text-copa-red">${total.toLocaleString()} COP</span>
+              <span className="text-[#ac3328]">${total.toLocaleString()} COP</span>
             </div>
           </div>
         </motion.div>
@@ -428,7 +428,7 @@ function PaymentSuccess({
           </div>
 
           <Button
-            className="w-full bg-gradient-to-r from-copa-red to-red-600 hover:from-copa-red-dark hover:to-red-700 text-white font-semibold py-3"
+            className="w-full bg-gradient-to-r from-[#ac3328] to-red-600 hover:from-[#ac3328]-dark hover:to-red-700 text-white font-semibold py-3"
             onClick={onClose}
           >
             Cerrar
@@ -545,8 +545,8 @@ function PaymentMethodModal({
       <Modal isOpen={true} onClose={() => {}} className="max-w-lg">
         <ModalContent className="flex flex-col items-center justify-center py-12">
           <div className="relative mb-6">
-            <div className="w-20 h-20 rounded-full bg-copa-red/20 flex items-center justify-center">
-              <Loader2 className="w-10 h-10 text-copa-red animate-spin" />
+            <div className="w-20 h-20 rounded-full bg-[#ac3328]/20 flex items-center justify-center">
+              <Loader2 className="w-10 h-10 text-[#ac3328] animate-spin" />
             </div>
             <div className="absolute -top-2 -right-2 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center">
               <Lock className="w-3 h-3 text-white" />
@@ -565,7 +565,7 @@ function PaymentMethodModal({
                 <span className="text-white font-medium">Verificando tarjeta...</span>
               </div>
               <div className="w-full bg-white/20 h-2 rounded-full overflow-hidden">
-                <div className="bg-copa-red h-full rounded-full animate-progress"></div>
+                <div className="bg-[#ac3328] h-full rounded-full animate-progress"></div>
               </div>
             </div>
           </div>
@@ -608,7 +608,7 @@ function PaymentMethodModal({
                   alt={match.homeTeam}
                   className="w-6 h-6 object-contain"
                 />
-                <span className="font-medium text-sm">
+                <span className="font-medium text-sm text-gray-200">
                   {teamAbbreviations[match.homeTeam]} vs {teamAbbreviations[match.awayTeam]}
                 </span>
                 <img
@@ -706,7 +706,7 @@ function PaymentMethodModal({
 
           {/* Botón de pago */}
           <Button
-            className="w-full bg-gradient-to-r from-copa-red to-red-600 hover:from-copa-red-dark hover:to-red-700 text-white font-semibold py-3"
+            className="w-full bg-gradient-to-r from-[#ac3328] to-red-600 hover:from-[#ac3328]-dark hover:to-red-700 text-white font-semibold py-3"
             disabled={!isFormValid}
             onClick={handleCardSubmit}
           >
@@ -741,7 +741,7 @@ function PaymentMethodModal({
                 alt={match.homeTeam}
                 className="w-6 h-6 object-contain"
               />
-              <span className="font-medium text-sm">
+              <span className="font-medium text-sm text-gray-200">
                 {teamAbbreviations[match.homeTeam]} vs {teamAbbreviations[match.awayTeam]}
               </span>
               <img
@@ -787,7 +787,7 @@ function PaymentMethodModal({
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
                       <h4 className="font-semibold text-white">{method.name}</h4>
-                      {method.popular && <Badge className="bg-copa-red text-white text-xs px-2 py-0.5">Popular</Badge>}
+                      {method.popular && <Badge className="bg-[#ac3328] text-white text-xs px-2 py-0.5">Popular</Badge>}
                     </div>
                     <p className="text-gray-400 text-sm">{method.description}</p>
                   </div>
@@ -815,7 +815,7 @@ function PaymentMethodModal({
 
         {/* Botón de continuar */}
         <Button
-          className="w-full bg-gradient-to-r from-copa-red to-red-600 hover:from-copa-red-dark hover:to-red-700 text-white font-semibold py-3"
+          className="w-full bg-gradient-to-r from-[#ac3328] to-red-600 hover:from-[#ac3328]-dark hover:to-red-700 text-white font-semibold py-3"
           disabled={!selectedMethod}
           onClick={handleContinue}
         >
@@ -867,11 +867,11 @@ function TicketModal({ match, isOpen, onClose }: { match: any; isOpen: boolean; 
                   alt={match.homeTeam}
                   className="w-8 h-8 object-contain"
                 />
-                <span className="font-bold">{teamAbbreviations[match.homeTeam]}</span>
+                <span className="font-bold text-white">{teamAbbreviations[match.homeTeam]}</span>
               </div>
-              <div className="text-copa-red font-bold">VS</div>
+              <div className="text-[#ac3328] font-bold">VS</div>
               <div className="flex items-center gap-3">
-                <span className="font-bold">{teamAbbreviations[match.awayTeam]}</span>
+                <span className="font-bold text-white">{teamAbbreviations[match.awayTeam]}</span>
                 <img
                   src={teamLogos[match.awayTeam] || "/placeholder.svg"}
                   alt={match.awayTeam}
@@ -882,16 +882,16 @@ function TicketModal({ match, isOpen, onClose }: { match: any; isOpen: boolean; 
 
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-copa-red" />
-                <span>{match.status}</span>
+                <Calendar className="w-4 h-4 text-[#ac3328]" />
+                <span className="text-white">{match.status}</span>
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-copa-red" />
-                <span>{match.time}</span>
+                <Clock className="w-4 h-4 text-[#ac3328]" />
+                <span className="text-white">{match.time}</span>
               </div>
               <div className="flex items-center gap-2 col-span-2">
-                <MapPin className="w-4 h-4 text-copa-red" />
-                <span>{match.venue}</span>
+                <MapPin className="w-4 h-4 text-[#ac3328]" />
+                <span className="text-white">{match.venue}</span>
               </div>
             </div>
           </div>
@@ -904,7 +904,7 @@ function TicketModal({ match, isOpen, onClose }: { match: any; isOpen: boolean; 
             </div>
             <div className="mt-2 bg-white/20 rounded-full h-2">
               <div
-                className="bg-gradient-to-r from-copa-red to-red-600 h-2 rounded-full transition-all duration-300"
+                className="bg-gradient-to-r from-[#ac3328] to-red-600 h-2 rounded-full transition-all duration-300"
                 style={{ width: `${occupancyPercentage}%` }}
               />
             </div>
@@ -918,17 +918,17 @@ function TicketModal({ match, isOpen, onClose }: { match: any; isOpen: boolean; 
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 mb-6">
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h3 className="font-semibold">Entrada General</h3>
+                <h3 className="font-semibold text-white">Entrada General</h3>
                 <p className="text-gray-400 text-sm">Acceso a todas las áreas públicas</p>
               </div>
               <div className="text-right">
-                <div className="text-2xl font-bold text-copa-red">${match.ticketPrice.toLocaleString()}</div>
+                <div className="text-2xl font-bold text-[#ac3328]">${match.ticketPrice.toLocaleString()}</div>
                 <div className="text-xs text-gray-400">COP</div>
               </div>
             </div>
 
             <div className="flex items-center justify-between">
-              <span className="font-medium">Cantidad:</span>
+              <span className="font-medium text-white">Cantidad:</span>
               <div className="flex items-center gap-3">
                 <Button
                   variant="outline"
@@ -938,7 +938,7 @@ function TicketModal({ match, isOpen, onClose }: { match: any; isOpen: boolean; 
                 >
                   -
                 </Button>
-                <span className="w-8 text-center font-bold">{selectedQuantity}</span>
+                <span className="w-8 text-center font-bold text-gray-200">{selectedQuantity.toLocaleString()}</span>
                 <Button
                   variant="outline"
                   size="sm"
@@ -954,14 +954,14 @@ function TicketModal({ match, isOpen, onClose }: { match: any; isOpen: boolean; 
           {/* Total */}
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 mb-6">
             <div className="flex items-center justify-between text-lg font-bold">
-              <span>Total:</span>
-              <span className="text-copa-red">${total.toLocaleString()} COP</span>
+              <span className="text-gray-200">Total:</span>
+              <span className="text-[#ac3328]">${total.toLocaleString()} COP</span>
             </div>
           </div>
 
           {/* Purchase Button */}
           <Button
-            className="w-full bg-gradient-to-r from-copa-red to-red-600 hover:from-copa-red-dark hover:to-red-700 text-white font-semibold py-3"
+            className="w-full bg-gradient-to-r from-[#ac3328] to-red-600 hover:from-[#ac3328]-dark hover:to-red-700 text-white font-semibold py-3"
             disabled={availableTickets === 0}
             onClick={() => setShowPaymentModal(true)}
           >
@@ -1078,7 +1078,7 @@ export default function UpcomingMatches() {
                 <div className="px-4 py-3 border-t border-white/10">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
-                      <Ticket className="w-4 h-4 text-copa-red" />
+                      <Ticket className="w-4 h-4 text-[#ac3328]" />
                       <span className="text-white font-medium text-sm">${match.ticketPrice.toLocaleString()} COP</span>
                     </div>
 
@@ -1109,7 +1109,7 @@ export default function UpcomingMatches() {
                     </div>
                   ) : (
                     <Button
-                      className="w-full bg-gradient-to-r from-copa-red to-red-600 hover:from-copa-red-dark hover:to-red-700 text-white font-semibold mb-3"
+                      className="w-full bg-gradient-to-r from-[#ac3328] to-red-600 hover:from-[#ac3328]-dark hover:to-red-700 text-white font-semibold mb-3"
                       disabled={availableTickets === 0}
                       onClick={() => setSelectedMatch(match)}
                     >
