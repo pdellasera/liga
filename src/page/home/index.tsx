@@ -11,6 +11,7 @@ import SponsorsSection from "../../components/SponsorsSection"
 import AdminLogin from "../../components/AdminLogin"
 import AdminDashboard from "../../components/AdminDashboard"
 import { useState } from "react"
+import PlayersStats from "../../components/PlayerStats"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -183,6 +184,24 @@ export default function HomePage() {
         </motion.div>
       </section>
 
+          {/* Player Statistics */}
+      <section className="px-4 py-8" id="jugadores">
+        <motion.div
+          className="mx-auto max-w-7xl"
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <div className="text-center mb-8">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Estadísticas de Jugadores</h2>
+            <p className="text-gray-300">Los mejores jugadores de la Copa Trinche</p>
+          </div>
+          <PlayersStats />
+        </motion.div>
+      </section>
+
+
       {/* Statistics Charts */}
       <section className="px-4 py-8" id="stats">
         <motion.div
@@ -199,6 +218,7 @@ export default function HomePage() {
           <StatsCharts />
         </motion.div>
       </section>
+  
 
       {/* Upcoming Matches */}
       <section className="px-4 py-8" id="partidos">
