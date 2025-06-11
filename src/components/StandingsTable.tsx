@@ -507,7 +507,7 @@ const groupsData = {
 }
 
 const getPositionColor = (pos: number, qualified: string | null) => {
-  if (qualified === "first") return "bg-[#ac3328]/20 text-[#ac3328] border-[#ac3328]/30"
+  if (qualified === "first") return "bg-green-500/20 text-green-500 border-green-500/30"
   if (qualified === "second") return "bg-orange-500/20 text-orange-400 border-orange-500/30"
   if (pos <= 2) return "bg-yellow-500/20 text-yellow-400 border-yellow-500/30"
   return "bg-gray-500/20 text-gray-400 border-gray-500/30"
@@ -516,7 +516,7 @@ const getPositionColor = (pos: number, qualified: string | null) => {
 const getQualificationIcon = (qualified: string | null) => {
   switch (qualified) {
     case "first":
-      return <Trophy className="w-3 h-3 text-[#ac3328]" />
+      return <Trophy className="w-3 h-3 text-green-500" />
     case "second":
       return <Medal className="w-3 h-3 text-orange-400" />
     default:
@@ -648,8 +648,8 @@ function GroupTable({ groupName, teams }: { groupName: string; teams: any[] }) {
         </CardTitle>
         <div className="flex flex-wrap gap-2 text-xs">
           <div className="flex items-center gap-1">
-            <div className="w-3 h-3 rounded-full bg-[#ac3328]/20 border border-[#ac3328]/30"></div>
-            <span className="text-[#ac3328]">1° Clasificado</span>
+            <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/30"></div>
+            <span className="text-green-500">1° Clasificado</span>
           </div>
           <div className="flex items-center gap-1">
             <div className="w-3 h-3 rounded-full bg-orange-500/20 border border-orange-500/30"></div>
@@ -733,7 +733,7 @@ function GroupTable({ groupName, teams }: { groupName: string; teams: any[] }) {
         </div>
 
         {/* Mobile Cards */}
-        <div className="lg:hidden space-y-3 p-4">
+        <div className="lg:hidden space-y-3">
           {teams.map((team, index) => (
             <motion.div
               key={team.team}
