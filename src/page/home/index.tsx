@@ -1,17 +1,16 @@
-"use client"
-
 import { motion } from "framer-motion"
 import { Trophy, Users, Calendar, TrendingUp, Medal, Target, Clock, MapPin } from "lucide-react"
-import Header from "../../components/Header"
+import { Card, CardContent } from "../../components/Card"
 import { Badge } from "../../components/Badge"
 import { Button } from "../../components/Button"
-import { Card, CardContent } from "../../components/Card"
 import StandingsTable from "../../components/StandingsTable"
 import StatsCharts from "../../components/StatsCharts"
 import UpcomingMatches from "../../components/UpcomingMatches"
+import Header from "../../components/Header"
 import SponsorsSection from "../../components/SponsorsSection"
-
-
+import AdminLogin from "../../components/AdminLogin"
+import AdminDashboard from "../../components/AdminDashboard"
+import { useState } from "react"
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -27,10 +26,44 @@ const staggerContainer = {
   },
 }
 
+type AppState = "home" | "admin-login" | "admin-dashboard"
+
 export default function HomePage() {
+  const [currentView, setCurrentView] = useState<AppState>("home")
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+  const handleAdminClick = () => {
+    setCurrentView("admin-login")
+  }
+
+  const handleLoginSuccess = () => {
+    setIsAuthenticated(true)
+    setCurrentView("admin-dashboard")
+  }
+
+  const handleLogout = () => {
+    setIsAuthenticated(false)
+    setCurrentView("home")
+  }
+
+  const handleBackToHome = () => {
+    setCurrentView("home")
+  }
+
+  // Render Admin Login
+  if (currentView === "admin-login") {
+    return <AdminLogin onBack={handleBackToHome} onLoginSuccess={handleLoginSuccess} />
+  }
+
+  // Render Admin Dashboard
+  if (currentView === "admin-dashboard" && isAuthenticated) {
+    return <AdminDashboard onLogout={handleLogout} />
+  }
+
+  // Render Home Page
   return (
-    <div className="bg-gradient-to-br from-slate-900 via-red-900 to-slate-900">
-      <Header />
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-red-900 to-slate-900">
+      <Header onAdminClick={handleAdminClick} />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden px-4 py-12 sm:py-20">
@@ -71,6 +104,7 @@ export default function HomePage() {
 
           <motion.div variants={fadeInUp}>
             <Button
+              size="lg"
               className="bg-gradient-to-r from-[#ac3328] to-red-600 hover:from-[#8b2a21] hover:to-red-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg"
             >
               Ver Tabla de Posiciones
@@ -133,7 +167,7 @@ export default function HomePage() {
       </section>
 
       {/* Standings Table */}
-      <section className="px-4 py-8">
+      <section className="px-4 py-8" id="tabla">
         <motion.div
           className="mx-auto max-w-7xl"
           initial="initial"
@@ -150,7 +184,7 @@ export default function HomePage() {
       </section>
 
       {/* Statistics Charts */}
-      <section className="px-4 py-8">
+      <section className="px-4 py-8" id="stats">
         <motion.div
           className="mx-auto max-w-7xl"
           initial="initial"
@@ -167,7 +201,7 @@ export default function HomePage() {
       </section>
 
       {/* Upcoming Matches */}
-      <section className="px-4 py-8">
+      <section className="px-4 py-8" id="partidos">
         <motion.div
           className="mx-auto max-w-7xl"
           initial="initial"

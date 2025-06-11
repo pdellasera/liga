@@ -14,7 +14,11 @@ const navItems = [
   { name: "Equipos", href: "#equipos" },
 ]
 
-export default function Header() {
+interface HeaderProps {
+  onAdminClick?: () => void
+}
+
+export default function Header({ onAdminClick }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -46,6 +50,16 @@ export default function Header() {
                 {item.name}
               </motion.a>
             ))}
+            <motion.button
+              onClick={onAdminClick}
+              className="text-gray-300 hover:text-white transition-colors font-medium"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: navItems.length * 0.1 }}
+              whileHover={{ y: -2 }}
+            >
+              Admin
+            </motion.button>
           </nav>
 
           {/* Mobile Navigation Button */}
@@ -56,7 +70,7 @@ export default function Header() {
           {/* Mobile Menu */}
           <MobileMenu isOpen={isOpen} onClose={() => setIsOpen(false)}>
             <div className="flex items-center gap-2 mb-8">
-              <img src="/images/copa-trinche-logo.png" alt="Copa Trinche" className="h-6 w-auto object-contain" />
+              <img src="/image/copa-trinche-logo.png" alt="Copa Trinche" className="h-6 w-auto object-contain" />
             </div>
             <nav className="flex flex-col gap-4">
               {navItems.map((item) => (
@@ -69,6 +83,15 @@ export default function Header() {
                   {item.name}
                 </a>
               ))}
+              <button
+                onClick={() => {
+                  if (onAdminClick) onAdminClick()
+                  setIsOpen(false)
+                }}
+                className="text-gray-300 hover:text-white transition-colors font-medium py-2 text-left"
+              >
+                Admin
+              </button>
             </nav>
           </MobileMenu>
         </div>

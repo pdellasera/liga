@@ -37,22 +37,30 @@ export function MobileMenu({ isOpen, onClose, children }: MobileMenuProps) {
             onClick={onClose}
           />
 
-          {/* Menu */}
-          <motion.div
-            className="fixed top-0 right-0 z-50 h-full w-80 bg-slate-900 shadow-xl md:hidden"
+          {/* Sidebar */}
+          <motion.aside
+            className="fixed top-0 right-0 z-50 h-screen w-80 bg-slate-900 shadow-xl md:hidden flex flex-col"
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
           >
-            <div className="flex items-center justify-between p-4 border-b border-white/10">
+            {/* Header fijo */}
+            <div className="flex items-center justify-between p-4 border-b border-white/10 bg-slate-900">
               <h2 className="text-lg font-semibold text-white">Menú</h2>
-              <button onClick={onClose} className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+              <button
+                onClick={onClose}
+                className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+              >
                 <X className="w-5 h-5 text-white" />
               </button>
             </div>
-            <div className="p-4">{children}</div>
-          </motion.div>
+
+            {/* Contenido con scroll */}
+            <div className="flex-1 overflow-y-auto p-4 bg-black/70">
+              {children}
+            </div>
+          </motion.aside>
         </>
       )}
     </AnimatePresence>
